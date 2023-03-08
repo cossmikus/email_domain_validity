@@ -1,7 +1,7 @@
 package main
-import(
-	"bufio" //parse
+import( 
 	"fmt"
+	"bufio"
 	"log"
 	"net"
 	"os"
@@ -23,8 +23,11 @@ func main(){
 }
 
 func check_domain(domain string){
-	var MX, SPF, DMARC bool
-	var spfRecord, DMARC_record string
+	var MX bool 
+	var SPF bool 
+	var DMARC bool
+	var spfRecord string 
+	var DMARC_record string
 
 	mxRecords, err := net.LookupMX(domain)
 	if err!=nil{
@@ -65,7 +68,6 @@ func check_domain(domain string){
 		fmt.Printf("Domain name is NOT legit\n")
 		fmt.Printf(" {domain: %v } {MX: %v} {SPF: %v} {spfRecord: %v} {DMARC: %v} {DMARC_record: %v} \n", domain, MX, SPF, spfRecord, DMARC, DMARC_record)
 	}
-	//fmt.Printf("%v %v %v %v %v %v ", domain, MX, SPF, spfRecord, DMARC, DMARC_record)
 }
 
  
